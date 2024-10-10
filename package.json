@@ -5,12 +5,24 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "electron:build": "vue-cli-service electron:build",
+    "electron:generate-icons": "electron-icon-builder --input=./public/favicon.png --output=build --flatten",
+    "electron:serve": "vue-cli-service electron:serve",
+    "postinstall": "electron-builder install-app-deps",
+    "postuninstall": "electron-builder install-app-deps"
   },
+  "main": "background.js",
   "dependencies": {
     "core-js": "^3.8.3",
+    "electron-devtools-installer": "^3.2.0",
+    "element": "^0.1.4",
+    "element-ui": "^2.15.14",
+    "path-browserify": "^1.0.1",
+    "phantomjs-prebuilt": "^2.1.16",
+    "require.js": "^1.0.0",
     "vue": "^2.6.14",
-    "vue-router": "^3.5.1",
+    "vue-router": "^3.6.5",
     "vuex": "^3.6.2"
   },
   "devDependencies": {
@@ -21,25 +33,16 @@
     "@vue/cli-plugin-router": "~5.0.0",
     "@vue/cli-plugin-vuex": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "electron": "^13.6.9",
+    "electron-devtools-installer": "^3.1.0",
+    "electron-icon-builder": "^2.0.1",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3",
-    "sass": "^1.32.7",
-    "sass-loader": "^12.0.0",
+    "less": "^4.2.0",
+    "less-loader": "^7.3.0",
+    "vue-cli-plugin-electron-builder": "~2.1.1",
     "vue-template-compiler": "^2.6.14"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ],
-    "parserOptions": {
-      "parser": "@babel/eslint-parser"
-    },
-    "rules": {}
   },
   "browserslist": [
     "> 1%",
